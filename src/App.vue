@@ -1,7 +1,6 @@
 <template>
   <Header />
   <router-view />
-  <!-- <Home msg="Hello World" /> -->
   <Footer />
 </template>
 
@@ -10,16 +9,12 @@ import { defineComponent } from 'vue'
 
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-// import ContactUsView from './views/ContactUsView.vue';
-// import HomeView from './views/HomeView.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     Header,
     Footer,
-    // HomeView,
-    // ContactUsView,
   }
 })
 </script>

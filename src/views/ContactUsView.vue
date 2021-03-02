@@ -1,5 +1,6 @@
 <template>
-    <ContactUs />
+    <h3>Contact us</h3>
+    <ContactUs /> 
 </template>
 
 <script lang="ts">

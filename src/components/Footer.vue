@@ -1,4 +1,5 @@
 <template>
+<br/>
     <footer>Copyright</footer>
 </template>
 

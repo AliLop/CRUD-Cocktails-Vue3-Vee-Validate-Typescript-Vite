@@ -1,14 +1,30 @@
 <template>
-    <div> HOME VIEW </div>
-    <Cocktails/>
+    <Cocktails :drinks="drinks"/>
 </template>
 
 <script lang="ts">
 import Cocktails from "../components/Cocktails.vue";
 export default {
-  name: "Home",
+  name: "HomeView",
   components: {
     Cocktails
+  },
+  data() {
+    return {
+      drinks: [ ]
+    }
+  },
+  beforeMount: function() {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail', {
+      method: 'get'
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((jsonData) => {
+      this.drinks = jsonData.drinks;
+      console.log(this.drinks)
+    })
   }
 };
 </script>
