@@ -16,7 +16,7 @@
         </div>
         <div>
             <label> Phone </label>
-            <Field name="phone" as="input" placeholder= "+99999" v-model="phone" />
+            <Field name="phone" as="input" placeholder= "(xxx)xxxxxxx" v-model="phone" />
         </div>
         <div>
             <label> Message </label>
@@ -25,7 +25,7 @@
             <span>{{ errors.message }}</span>
         </div>
         </div>
-        <button>Submit</button>
+        <button v-bind:disabled="name.length == 0 || email.length < 7 || message.length < 8">Submit</button>
   </Form>
 </template>
 
@@ -40,101 +40,41 @@ export default({
         Field,
         Form,
         ErrorMessage,
-  },
-  setup() {
-      const schema = yup.object().shape({
-          name: yup.string().required("Name is required"),
-          email: yup.string().email("Email is invalid").required("Email is required"),
-          phone: yup.string(),
-          message: yup.string().min(8).required("Message is required"),
-      })
-  
-    const el = ref()
-    const name = ref('')
-     const email = ref('')
-     const phone =ref('')
-     const message = ref('')
-
-  const submitForm = () => {
-        alert('Form submitted!')
-         console.log(`Form submitted! 
-         Name= ${name.value}
-         Email= ${email.value}
-         Phone= ${phone.value}
-         Message= ${message.value}`)
-  }
-
-   return {
-      schema,
-      el,
-      name,
-      email,
-      phone,
-      message,
-      submitForm,
-  }
-  }
-});
-
-
-
-//   methods: {
-//     onSubmit(values) {
-//       alert(JSON.stringify(values, null ,2));
-//     }
-//   }
-
-//  <form>
-//             <input ref="el" type="text" placeholder="Name" v-model="name" required/>    
-//             <br/>
-//             <br/>
-//             <input type="email" placeholder="Email" v-model="email" required/>
-//             <br/>
-//             <br/>
-//             <input type="number" placeholder="Phone" v-model="phone"/>
-//             <br/>
-//             <br/>
-//             <input type="text" placeholder="Message" v-model="message" required/>
-//             <div>
-//                 <button 
-//                     @click="submitForm"
-//                     v-bind:disabled="name.length == 0"
-//                 >Submit</button>
-//             </div>
-//         </form>
-// <-- library to check & reset form -->
-// import { ref, defineComponent, onMounted } from 'vue'
-// export default defineComponent({
-//   name: 'ContactUs',
-//   setup: () => {
-//     const el = ref()
-//     const name = ref('')
-//     const email = ref('')
-//     const phone =ref('')
-//     const message = ref('')
+    },
+    setup() {
+        const schema = yup.object().shape({
+            name: yup.string().required("Name is required"),
+            email: yup.string().email("Email is invalid").required("Email is required"),
+            phone: yup.string().required("Phone number is required").matches(/\(?\d{3}\)?-? *\d{3}-? *-?\d{4}/),
+            message: yup.string().min(8).required("Message is required"),
+        })
     
-//     const submitForm = () => {
-//         alert('Form submitted!')
-//         console.log(`Form submitted! 
-//         Name= ${name.value}
-//         Email= ${email.value}
-//         Phone= ${phone.value}
-//         Message= ${message.value}`)
-//     }
+        const el = ref()
+        const name = ref('')
+        const email = ref('')
+        const phone =ref('')
+        const message = ref('')
 
-//     onMounted(() => {
-//         el.value.focus()
-//     })
-//     return { 
-//         el,
-//         name,
-//         email, 
-//         phone, 
-//         message,
-//         submitForm
-//          }
-//   }
-// })
+        const submitForm = () => {
+            alert('Form submitted!')
+            console.log(`Form submitted! 
+            Name= ${name.value}
+            Email= ${email.value}
+            Phone= ${phone.value}
+            Message= ${message.value}`)
+        }
+
+        return {
+        schema,
+        el,
+        name,
+        email,
+        phone,
+        message,
+        submitForm,
+        }
+    }
+});
 </script>
 
 <style scoped>

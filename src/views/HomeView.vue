@@ -1,4 +1,5 @@
 <template>
+    <h1>All Cocktails</h1>
     <Cocktails :drinks="drinks"/>
 </template>
 
@@ -11,10 +12,10 @@ export default {
   },
   data() {
     return {
-      drinks: [ ]
+      drinks: [ ],
     }
   },
-  beforeMount: function() {
+  beforeMount() {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail', {
       method: 'get'
     })
@@ -23,8 +24,11 @@ export default {
     })
     .then((jsonData) => {
       this.drinks = jsonData.drinks;
-      console.log(this.drinks)
+      // console.log(this.drinks)
     })
+    .catch((error) => {
+      console.log('error: ', error.message)
+    });
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div> Favorites VIEW </div>
+    <h1>Favorite Cocktails</h1>
     <Favorites />
 </template>
 
