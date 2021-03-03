@@ -1,5 +1,6 @@
 <template>
     <h1>Cocktail Details</h1>
+    <br/>
     <Details /> 
 </template>
 

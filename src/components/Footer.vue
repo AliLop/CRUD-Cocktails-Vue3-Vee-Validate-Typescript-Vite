@@ -1,6 +1,5 @@
 <template>
-<br/>
-    <footer>Copyright</footer>
+    <footer class="footer">Copyright</footer>
 </template>
 
 <script lang="ts">
@@ -9,3 +8,10 @@ export default defineComponent({
   name: 'Footer',
 })
 </script>
+
+<style scoped>
+.footer {
+  padding: 30px;
+  background-color:wheat;
+}
+</style>

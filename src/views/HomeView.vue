@@ -1,5 +1,6 @@
 <template>
     <h1>All Cocktails</h1>
+    <br/>
     <Cocktails :drinks="drinks"/>
 </template>
 

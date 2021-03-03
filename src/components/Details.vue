@@ -1,14 +1,18 @@
 <template>
-    <div class="Details" v-if="drink">
+    <div class="details-view">
+    <div class="details" v-if="drink">
         <img alt="Cocktail image" :src="imgUrl({drink})" />
-        <h4>Name: {{ drink.strDrink }}</h4>
-        <h5>Category: {{ drink.strCategory }}</h5>
-        <h5>Glass: {{ drink.strGlass }}</h5>
-        <h5>Instructions: {{ drink.strInstructions }}</h5>
+        <div class="description">
+            <h4>{{ drink.strDrink }}</h4>
+            <h5>Category: {{ drink.strCategory }}</h5>
+            <h5>Glass: {{ drink.strGlass }}</h5>
+            <h5>Instructions</h5> <p>{{ drink.strInstructions }}</p>
+        </div>
     </div>
     <div v-else>
         <p>Loading details...</p>
-        <p>The drink id is {{ $route.params.id }}</p>
+        <!-- <p>The drink id is {{ $route.params.id }}</p> -->
+    </div>
     </div>
 </template>
 
@@ -45,3 +49,29 @@ export default defineComponent ({
     }
 });
 </script>
+
+<style scoped>
+.details-view {
+      min-height: 78vh;
+}
+.details {
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  max-width: 30%;
+  min-width: 400px;
+  display: flex;
+}
+.title {
+  padding: 5%;
+  max-width: 200px;
+}
+.description {
+    text-align: left;
+    margin: 2%;
+}
+button {
+    margin: 20px 0;
+    background-color: #eee;
+}
+</style>

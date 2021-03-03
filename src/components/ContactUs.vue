@@ -1,32 +1,45 @@
 <template>
-    <Form class="ContactUs" @submit="submitForm" :validation-schema="schema" v-slot="{ errors }">
-        <div>
-            <label> Name </label>
-            <Field  name="name" as="input" placeholder='John Smith' v-model="name" />
-        <div>
-            <span>{{ errors.name }}</span>
-        </div>
-        </div>
-        <div>
-            <label> Email </label>
-            <Field name="email" as="input" placeholder='example@example.com' v-model="email" />
-        <div>
-            <span>{{ errors.email }}</span>
-        </div>
-        </div>
-        <div>
-            <label> Phone </label>
-            <Field name="phone" as="input" placeholder= "(xxx)xxxxxxx" v-model="phone" />
-        </div>
-        <div>
-            <label> Message </label>
-            <Field name="message" as="input" placeholder='Message' v-model="message" />
-        <div>
-            <span>{{ errors.message }}</span>
-        </div>
-        </div>
-        <button v-bind:disabled="name.length == 0 || email.length < 7 || message.length < 8">Submit</button>
-  </Form>
+    <div class="form-view">
+        <Form class="contactUs" @submit="submitForm" :validation-schema="schema" v-slot="{ errors }">
+            <div>
+                <label>Name*</label>
+                <Field class="field" name="name" as="input" placeholder='John Smith' v-model="name" />
+                <div>
+                    <br/>
+                    <span>{{ errors.name }}</span>
+                </div>
+            </div>
+            <div>
+                <label>Email*</label>
+                <Field class="field" name="email" as="input" placeholder='example@example.com' v-model="email" />
+                <div>
+                    <br/>
+                    <span>{{ errors.email }}</span>
+                </div>
+            </div>
+            <div>
+                <label>Phone*</label>
+                <Field class="field" name="phone" as="input" placeholder= "(xxx)xxxxxxx" v-model="phone" />
+                <div>
+                    <br/>
+                    <span>{{ errors.phone}}</span>
+                </div>
+            </div>
+            <div>
+                <label>Message*</label>
+                <Field class="field" name="message" as="input" placeholder='Message' v-model="message" />
+                <div>
+                    <br/>
+                    <span>{{ errors.message }}</span>
+                </div>
+            </div>
+            <div>
+                <br/>
+                <span>* Required fields</span>
+            </div>
+            <button v-bind:disabled="name.length == 0 || email.length < 7 || message.length < 8">Submit</button>
+        </Form>
+    </div>
 </template>
 
 <script lang="ts">
@@ -58,10 +71,14 @@ export default({
         const submitForm = () => {
             alert('Form submitted!')
             console.log(`Form submitted! 
-            Name= ${name.value}
-            Email= ${email.value}
-            Phone= ${phone.value}
-            Message= ${message.value}`)
+                Name= ${name.value}
+                Email= ${email.value}
+                Phone= ${phone.value}
+                Message= ${message.value}`)
+            name.value = ''
+            email.value = ''
+            phone.value = ''
+            message.value = ''
         }
 
         return {
@@ -78,10 +95,37 @@ export default({
 </script>
 
 <style scoped>
-input[type="text"] {
-    padding: 5px,
+.form-view {
+  min-height: 78vh;
+}
+.contactUs {
+    max-width: 420px;
+    margin: 30px auto;
+    background: white;
+    text-align: left;
+    padding: 40px;
+    border-radius: 10px;
+}
+label {
+    color: #2c3e50;
+    display:  inline-block;
+    margin: 25px 0 15px;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+.field {
+    display: block;
+    padding: 10px 6px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    color: #555;
 }
 button {
-    margin-top: 10px
+    margin: 20px 0 0;
+    background-color: #eee;
 }
 </style>

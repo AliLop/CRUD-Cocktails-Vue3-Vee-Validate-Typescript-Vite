@@ -1,6 +1,9 @@
 <template>
   <Header />
-  <router-view />
+  <div class="views">
+    <router-view />
+  </div>
+  <hr/>
   <Footer />
 </template>
 
@@ -15,7 +18,7 @@ export default defineComponent({
   components: {
     Header,
     Footer,
-  }
+  },
 })
 </script>
 
@@ -26,6 +29,24 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+body {
+  margin: 0;
+  background: #eee;
+}
+button {
+ margin: 0px 10px;
+ padding: 15px;
+ border: none;
+ border-radius: 4px;
+ color: #2c3e50;
+ background-color: white;
+ font-weight: bold;
+}
+h1 {
+ color: #2c3e50;
+}
+hr {
+  margin: 0
 }
 </style>

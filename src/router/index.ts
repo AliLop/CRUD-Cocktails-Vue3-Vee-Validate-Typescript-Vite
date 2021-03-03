@@ -3,12 +3,13 @@ import HomeView from "../views/HomeView.vue";
 import FavoritesView from "../views/FavoritesView.vue"
 import ContactUsView from "../views/ContactUsView.vue";
 import DetailsView from "../views/DetailsView.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routerHistory = createWebHistory()
 
 const router = createRouter({
-     history: routerHistory, 
-     routes: [
+    history: routerHistory, 
+    routes: [
          {
              path: "/",
              name: "HomeView",
@@ -27,8 +28,19 @@ const router = createRouter({
          {
             path: "/details/:id",
             name: "DetailsView",
-            component: DetailsView
+            component: DetailsView,
         },
+        //redirect
+        {
+            path: '/cocktails',
+            redirect: '/',
+        },
+        //catch all 404
+        {
+            path: '/:catchAll(.*)',
+            name: "NotFound",
+            component: NotFound,
+        }
      ]
  })
 

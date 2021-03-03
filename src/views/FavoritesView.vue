@@ -1,5 +1,6 @@
 <template>
     <h1>Favorite Cocktails</h1>
+    <br/>
     <Favorites />
 </template>
 
