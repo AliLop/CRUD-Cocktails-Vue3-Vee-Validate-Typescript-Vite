@@ -25,7 +25,6 @@ export default {
     })
     .then((jsonData) => {
       this.drinks = jsonData.drinks;
-      // console.log(this.drinks)
     })
     .catch((error) => {
       console.log('error: ', error.message)

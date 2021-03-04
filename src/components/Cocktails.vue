@@ -6,6 +6,7 @@
           <router-link :to="{ name: 'DetailsView', params: { id: drink.idDrink } }">
             <button>See details</button>
           </router-link>
+          <!-- missing toggle -->
           <button class="fav-button" @click="handleAdd({drink})">Add to favorites</button>
       </div>
      </div>

@@ -33,7 +33,6 @@ export default defineComponent({
       'removeFav'
     ]),
     handleRemove({favorite}) {
-      console.log({favorite})
       this.removeFav({favorite})
     }
   },

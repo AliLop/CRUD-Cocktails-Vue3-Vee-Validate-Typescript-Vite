@@ -40,7 +40,6 @@ export default defineComponent ({
         })
         .then((jsonData) => {
         this.drink = jsonData.drinks[0];
-        console.log(this.drink)
         })
         .catch((error) => {
         console.log('error: ', error.message)

@@ -14,7 +14,6 @@ export const store = createStore({
             state.count++
         },
         excludeFav(state, drink) {
-            console.log(state.favorites)
             for (let i = state.favorites.length -1; i >= 0; i--) {
                 if (state.favorites[i].idDrink === drink.idDrink) {
                     state.favorites.splice([i], 1);
