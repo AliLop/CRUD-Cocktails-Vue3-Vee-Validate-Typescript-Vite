@@ -51,10 +51,6 @@ export default defineComponent({
   background-color: white;
   border-radius: 10px;
 }
-.title {
-  padding: 5%;
-  max-width: 200px;
-}
 </style>
 
 

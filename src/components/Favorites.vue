@@ -3,11 +3,11 @@
     <div class="favorites">
       <div class="card" v-for="favorite in favorites" v-bind:key="favorite[index]">
       <img alt="Favorite cocktail image" :src="imgUrl({favorite})" /> 
-      <h4 id="{{favorite.idDrink}}">{{ favorite.strDrink }}</h4>
+      <h4 class="title" id="{{favorite.idDrink}}">{{ favorite.strDrink }}</h4>
       <router-link :to="{ name: 'DetailsView', params: { id: favorite.idDrink }}">
             <button>See details</button>
       </router-link>
-      <button @click="handleRemove({favorite})">Remove</button>
+      <button class="fav-button" @click="handleRemove({favorite})">Remove favorite</button>
       </div>
     </div>
   </div>
@@ -66,9 +66,5 @@ export default defineComponent({
   margin: 20px;
   background-color: white;
   border-radius: 10px;
-}
-.title {
-  padding: 5%;
-  max-width: 200px;
 }
 </style>

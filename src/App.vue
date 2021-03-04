@@ -42,10 +42,19 @@ button {
  font-weight: bold;
  margin: 10px 10px 20px 10px;
 }
+.fav-button {
+  margin-left: 0px;
+}
 h1 {
   color: #b48484;
 }
 img {
   padding: 15px;
+}
+.title {
+  padding: 5%;
+  max-width: 200px;
+  margin: auto;
+  min-height: 36px;
 }
 </style>

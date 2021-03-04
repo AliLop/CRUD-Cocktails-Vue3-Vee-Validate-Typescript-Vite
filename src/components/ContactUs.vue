@@ -125,7 +125,7 @@ label {
     color: #555;
 }
 .submit-button {
-    margin: 20px 0;
+    margin: 20px 0 0;
     padding: 15px;
 }
 </style>

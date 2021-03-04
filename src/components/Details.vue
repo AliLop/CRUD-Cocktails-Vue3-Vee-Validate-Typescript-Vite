@@ -60,10 +60,6 @@ export default defineComponent ({
   min-width: 400px;
   display: flex;
 }
-.title {
-  padding: 5%;
-  max-width: 200px;
-}
 .description {
     text-align: left;
     margin: 2%;

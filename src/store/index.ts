@@ -1,4 +1,5 @@
 
+import { useFormValues } from 'vee-validate';
 import { createStore } from 'vuex';
 import favs from '../../data/db.json';
 
@@ -9,17 +10,27 @@ export const store = createStore({
     },
     mutations: {
         appendFav(state, newFav) {
-            //missing if statement
-            state.favorites.push(newFav)
-            state.count++
+            let found = false;
+            for (let i = state.favorites.length -1; i >= 0; i--) {
+                if (state.favorites[i].idDrink == newFav.idDrink) {
+                    found = true;
+                    alert('already a favorite!')
+                    break;
+                }
+            }
+            if(!found) {
+                state.favorites.push(newFav)
+                state.count++
+            }
         },
         excludeFav(state, drink) {
+            state.count--
             for (let i = state.favorites.length -1; i >= 0; i--) {
                 if (state.favorites[i].idDrink === drink.idDrink) {
                     state.favorites.splice([i], 1);
                 }
             }
-            state.count--
+            
         }
      },
     actions: {
