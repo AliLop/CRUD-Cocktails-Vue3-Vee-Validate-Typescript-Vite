@@ -1,5 +1,6 @@
 <template>
-    <footer class="footer">Copyright</footer>
+  <hr/>
+  <footer class="footer">Copyright</footer>
 </template>
 
 <script lang="ts">

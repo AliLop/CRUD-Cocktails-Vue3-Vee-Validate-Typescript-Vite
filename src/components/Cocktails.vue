@@ -51,10 +51,6 @@ export default defineComponent({
   padding: 5%;
   max-width: 200px;
 }
-button {
-    margin: 20px 0;
-    background-color: #eee;
-}
 </style>
 
 

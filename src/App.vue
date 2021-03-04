@@ -3,7 +3,6 @@
   <div class="views">
     <router-view />
   </div>
-  <hr/>
   <Footer />
 </template>
 
@@ -35,16 +34,16 @@ body {
   background: #eee;
 }
 button {
- margin: 0px 10px;
  padding: 15px;
  border: none;
  border-radius: 4px;
- color: #2c3e50;
- background-color: white;
+ margin: 20px 0;
+  background-color: #b48484;
+  color: white;
  font-weight: bold;
 }
 h1 {
- color: #2c3e50;
+  color: #b48484;
 }
 hr {
   margin: 0

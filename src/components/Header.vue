@@ -6,12 +6,11 @@
         <router-link to="/contact-us">Contact us</router-link>    
       </nav>
       <div class="routing">
-        <button @click="redirect">Redirect</button>
-        <button @click="back">Go back</button>
-        <button @click="forward">Go forward</button>
+        <button @click="redirect">Home</button>
+        <button @click="back">Back</button>
+        <button @click="forward">Forward</button>
       </div>
     </header>
-    <hr/>
 </template>
 
 <script lang="ts">
@@ -50,12 +49,20 @@ nav a {
   padding: 20px;
   border-radius: 4px;
 }
+nav a.router-link-active {
+    color: #b48484
+}
 .routing {
   display: flex;
 }
 @media screen and (max-width: 360px) {
   .routing {
     display: none;
+  }
 }
+button {
+  color: #2c3e50;
+  margin: 0px 10px;
+  background-color: white;
 }
 </style>
