@@ -1,5 +1,5 @@
 <template>
-    <div class="form-view">
+    <div class="form-comp">
         <Form class="contactUs" @submit="submitForm" :validation-schema="schema" v-slot="{ errors }">
             <div>
                 <label>Name*</label>
@@ -37,7 +37,7 @@
                 <br/>
                 <span>* Required fields</span>
             </div>
-            <button v-bind:disabled="name.length == 0 || email.length < 7 || message.length < 8">Submit</button>
+            <button class="submit-button" v-bind:disabled="name.length == 0 || email.length < 7 || message.length < 8">Submit</button>
         </Form>
     </div>
 </template>
@@ -95,7 +95,7 @@ export default({
 </script>
 
 <style scoped>
-.form-view {
+.form-comp {
   min-height: 78vh;
 }
 .contactUs {
@@ -123,5 +123,9 @@ label {
     border: none;
     border-bottom: 1px solid #ddd;
     color: #555;
+}
+.submit-button {
+    margin: 20px 0;
+    padding: 15px;
 }
 </style>

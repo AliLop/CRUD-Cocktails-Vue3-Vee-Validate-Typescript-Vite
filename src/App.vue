@@ -34,18 +34,18 @@ body {
   background: #eee;
 }
 button {
- padding: 15px;
+ padding: 10px;
  border: none;
  border-radius: 4px;
- margin: 20px 0;
   background-color: #b48484;
   color: white;
  font-weight: bold;
+ margin: 10px 10px 20px 10px;
 }
 h1 {
   color: #b48484;
 }
-hr {
-  margin: 0
+img {
+  padding: 15px;
 }
 </style>

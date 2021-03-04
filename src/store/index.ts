@@ -1,26 +1,41 @@
-// import { createStore } from 'vuex';
 
-// export type State = { counter: number };
+import { createStore } from 'vuex';
+import favs from '../../data/db.json';
 
-// const state: State = { counter: 0 }
+export const store = createStore({
+    state: {
+            favorites: favs.favorites,
+            count: favs.favorites.length,
+    },
+    mutations: {
+        appendFav(state, newFav) {
+            //missing if statement
+            state.favorites.push(newFav)
+            state.count++
+        },
+        excludeFav(state, drink) {
+            console.log(state.favorites)
+            for (let i = state.favorites.length -1; i >= 0; i--) {
+                if (state.favorites[i].idDrink === drink.idDrink) {
+                    state.favorites.splice([i], 1);
+                }
+            }
+            state.count--
+        }
+     },
+    actions: {
+        addFav({ commit }, { drink }) {
+            commit("appendFav", drink);
+        },
+        removeFav({ commit }, { favorite }) {
+            commit("excludeFav", favorite)
+        }
+    }
 
-// export const store = createStore({
-//     state,
-//     mutations: {
-//         increment(state, payload) {
-//             state.counter++;
-//         }
-//     },
-//     actions: {
-//         //async 
-//         increment({ commit }) {
-//             commit("increment");
-//         }
-//     },
 //     getters: {
 //         counter(state) {
 //             return state.counter;
 //         }
 //     },
 //     modules: {}
-// });
+ });

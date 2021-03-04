@@ -1,5 +1,7 @@
 {
     "favorites": [
-        { "strDrink": "155 Belmont", "idDrink": 15346, "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg"}   
+        { "strDrink": "155 Belmont", "idDrink": 15346, "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg"},
+        { "strDrink": "A.D.M. (After Dinner Mint)", "idDrink": 14560, "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/ruxuvp1472669600.jpg"}
+
     ]
 }

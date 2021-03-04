@@ -1,5 +1,5 @@
 <template>
-    <div class="details-view">
+    <div class="details-comp">
     <div class="details" v-if="drink">
         <img alt="Cocktail image" :src="imgUrl({drink})" />
         <div class="description">
@@ -11,7 +11,6 @@
     </div>
     <div v-else>
         <p>Loading details...</p>
-        <!-- <p>The drink id is {{ $route.params.id }}</p> -->
     </div>
     </div>
 </template>
@@ -41,7 +40,7 @@ export default defineComponent ({
         })
         .then((jsonData) => {
         this.drink = jsonData.drinks[0];
-        // console.log(this.drink)
+        console.log(this.drink)
         })
         .catch((error) => {
         console.log('error: ', error.message)
@@ -51,7 +50,7 @@ export default defineComponent ({
 </script>
 
 <style scoped>
-.details-view {
+.details-comp {
       min-height: 78vh;
 }
 .details {

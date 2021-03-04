@@ -2,7 +2,7 @@
     <header> 
       <nav>
         <router-link to="/">Cocktails</router-link>
-        <router-link to="/favorites">Favorites</router-link>
+        <router-link to="/favorites">Favorites ({{ count }})</router-link>
         <router-link to="/contact-us">Contact us</router-link>    
       </nav>
       <div class="routing">
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-
+import { mapState } from 'vuex'; 
 export default {
   name: 'Header',
   methods: {
@@ -27,6 +27,11 @@ export default {
     forward() {
       this.$router.go(+1)
     }
+  },
+  computed: {
+    ...mapState([
+      'count'
+    ])
   },
 }
 </script>

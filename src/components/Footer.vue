@@ -1,5 +1,4 @@
 <template>
-  <hr/>
   <footer class="footer">Copyright</footer>
 </template>
 

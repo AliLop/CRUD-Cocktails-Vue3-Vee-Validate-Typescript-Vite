@@ -1,5 +1,5 @@
 <template>
-  <div class="favorites-view">
+  <div class="favorites-comp">
     <div class="favorites">
       <div class="card" v-for="favorite in favorites" v-bind:key="favorite[index]">
       <img alt="Favorite cocktail image" :src="imgUrl({favorite})" /> 
@@ -7,20 +7,21 @@
       <router-link :to="{ name: 'DetailsView', params: { id: favorite.idDrink }}">
             <button>See details</button>
       </router-link>
-      <!-- <button @click="remove">Remove from favorites</button> -->
+      <button @click="handleRemove({favorite})">Remove</button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { mapState } from 'vuex'; 
+import { mapActions } from 'vuex'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Favorites',
   data() {
     return {
-      favorites: [],
       index: Number,
     }
   },
@@ -28,20 +29,32 @@ export default defineComponent({
     imgUrl({favorite}) {
       return `${favorite.strDrinkThumb}/preview`
     },
+    ...mapActions([
+      'removeFav'
+    ]),
+    handleRemove({favorite}) {
+      console.log({favorite})
+      this.removeFav({favorite})
+    }
   },
-  mounted() {
-    fetch('http://localhost:8000/favorites', {
-          method: 'get'
-          })
-      .then(response => response.json())
-      .then(data => this.favorites = data)
-      .catch(err => console.log('Error: ', err.message))
-  }
+  computed: {
+    ...mapState([
+      'favorites'
+    ])
+  },
+  // mounted() {
+  //   fetch('http://localhost:8000/favorites', {
+  //         method: 'get'
+  //         })
+  //     .then(response => response.json())
+  //     .then(data => this.favs = data)
+  //     .catch(err => console.log('Error: ', err.message))
+  // }
 })
 </script>
 
 <style scoped>
-.favorites-view {
+.favorites-comp {
   min-height: 78vh;
 }
 .favorites {
