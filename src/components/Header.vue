@@ -68,5 +68,6 @@ button {
   color: #2c3e50;
   margin: 0px 10px;
   background-color: white;
+  padding: 10px 20px;
 }
 </style>

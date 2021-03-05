@@ -37,13 +37,14 @@ button {
  padding: 10px;
  border: none;
  border-radius: 4px;
-  background-color: #b48484;
+  background-color:  #7a5656; 
+  background-image: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,0));
   color: white;
  font-weight: bold;
  margin: 10px 10px 20px 10px;
 }
 h1 {
-  color: #b48484;
+  color: #7a5656; 
 }
 .cocktails-comp {
   display: flex;
@@ -55,9 +56,11 @@ h1 {
   margin: 20px;
   background-color: white;
   border-radius: 10px;
+  box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4)
 }
 .fav-button {
   margin-left: 0px;
+  background-color: #b48484;
 }
 img {
   padding: 15px;

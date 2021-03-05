@@ -74,6 +74,7 @@ input {
     border-bottom: 1px solid #ddd;
     color: #555;
     border-radius: 6px;
+    box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4)
 }
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {

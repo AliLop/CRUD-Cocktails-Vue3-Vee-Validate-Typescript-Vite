@@ -7,7 +7,7 @@
         <div class="description">
             <h4>{{ drink.strDrink }}</h4>
             <h5>Category: {{ drink.strCategory }}</h5>
-            <h5>Glass: {{ drink.strGlass }}</h5>
+            <h5>Best in {{ drink.strGlass }}</h5>
             <h5>Instructions</h5><p>{{ drink.strInstructions }}</p>
         </div>
     </div>

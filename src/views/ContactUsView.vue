@@ -106,6 +106,8 @@ export default({
     text-align: left;
     padding: 40px;
     border-radius: 10px;
+    box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4)
+
 }
 label {
     color: #2c3e50;
