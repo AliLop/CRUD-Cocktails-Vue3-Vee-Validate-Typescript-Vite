@@ -9,7 +9,7 @@
       />
     </div>
     <div v-else>
-        <p> Loading cocktails... </p>
+        <p> No favorites cocktails added yet! </p>
     </div>
 </template>
 

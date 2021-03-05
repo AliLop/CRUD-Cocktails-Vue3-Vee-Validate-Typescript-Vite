@@ -32,7 +32,7 @@ export default {
     name: 'Card',
     props: { drink: { type: Object as PropType<Drink> } },
     methods: {
-        imgUrl(drink) {
+        imgUrl(drink: Drink) {
         return `${drink.strDrinkThumb}/preview`
         },
         ...mapActions([

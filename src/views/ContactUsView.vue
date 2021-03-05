@@ -1,7 +1,7 @@
 <template>
   <h1>Contact us</h1>
     <div class="form-comp">
-        <Form class="contactUs" @submit="submitForm" :validation-schema="schema" v-slot="{ errors }">
+        <Form class="contactUs" @submit.prevent="submitForm" :validation-schema="schema" v-slot="{ errors }">
             <div>
                 <label>Name*</label>
                 <Field class="field" name="name" as="input" placeholder='John Smith' v-model="name" />
@@ -97,7 +97,7 @@ export default({
 
 <style scoped>
 .form-comp {
-  min-height: 78vh;
+  margin: 0 5% 15%;
 }
 .contactUs {
     max-width: 420px;

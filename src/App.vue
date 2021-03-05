@@ -48,7 +48,7 @@ h1 {
 .cocktails-comp {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 5%;
+  margin: 0 5% 10%;
   justify-content: center;
 }
 .card {

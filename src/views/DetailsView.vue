@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-
+import { detailsById } from '../services/Drinks.service';
 
 export default {
     name: "DetailsView",
@@ -29,25 +29,15 @@ export default {
         }
     },
     methods: {
-        imgUrl({drink}) {
+        imgUrl({ drink }) {
             return `${drink.strDrinkThumb}/preview`
         },
      },
-    beforeMount() {
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.id, {
-        method: 'get'
-        })
-        .then((response) => {
-        return response.json()
-        })
-        .then((jsonData) => {
-        this.drink = jsonData.drinks[0];
-        })
-        .catch((error) => {
-        console.log('error: ', error.message)
-        });
+    async mounted() {
+        const one = await detailsById(this.id);
+        if (one.data.drinks.length) this.drink = one.data.drinks[0]
     }
-};
+ };
 </script>
 
 <style scoped>
