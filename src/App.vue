@@ -31,17 +31,20 @@ export default defineComponent({
 }
 body {
   margin: 0;
-  background: #eee;
+  background: #C9E0DF;
 }
 button {
- padding: 10px;
- border: none;
- border-radius: 4px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
   background-color:  #7a5656; 
   background-image: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,0));
   color: white;
- font-weight: bold;
- margin: 10px 10px 20px 10px;
+  font-weight: bold;
+  margin: 10px 10px 20px 10px;
+}
+button:hover {
+  cursor: pointer;
 }
 h1 {
   color: #7a5656; 
@@ -63,12 +66,19 @@ h1 {
   background-color: #b48484;
 }
 img {
-  padding: 15px;
+  min-width: -webkit-fill-available;
 }
 .title {
   padding: 5%;
   max-width: 200px;
   margin: auto;
   min-height: 36px;
+}
+input:focus {
+    outline: none;
+    border-radius: 6px;
+}
+input:hover{
+  border-color: #FDD68B
 }
 </style>

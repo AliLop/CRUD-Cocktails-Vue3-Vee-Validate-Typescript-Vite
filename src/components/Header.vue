@@ -6,9 +6,9 @@
         <router-link to="/contact-us">Contact us</router-link>    
       </nav>
       <div class="routing">
-        <button @click="redirect">Home</button>
-        <button @click="back">Back</button>
-        <button @click="forward">Forward</button>
+        <button @click="back">⬅️</button>
+        <button @click="redirect">🏠</button>
+        <button @click="forward">➡️</button>
       </div>
     </header>
 </template>
@@ -50,7 +50,7 @@ nav a {
   font-weight: bold;
   color: #2c3e50;
   text-decoration: none;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 4px;
 }
 nav a.router-link-active {
@@ -65,9 +65,13 @@ nav a.router-link-active {
   }
 }
 button {
-  color: #2c3e50;
   margin: 0px 10px;
-  background-color: white;
-  padding: 10px 20px;
+  background-color: #F5DEB3;;
+  background-image: none;
+  font-size: larger;
+  
+}
+button:focus {
+    outline: none;
 }
 </style>

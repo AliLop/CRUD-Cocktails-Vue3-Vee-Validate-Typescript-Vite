@@ -5,9 +5,10 @@
       <input
         type="search"
         name="search"
-        placeholder="Search"
+        placeholder="Search..."
         v-model="searchInput"
         @keydown="searchInputUpdate"
+        label="O"
       />
     </div>
   </div>
@@ -66,15 +67,16 @@ export default {
 
 <style scoped>
 input {
-    padding: 10px 6px;
+    padding: 10px 15px;
     width: 30%;
+    min-width: fit-content;
     max-width: 250px;
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #ddd;
     color: #555;
-    border-radius: 6px;
-    box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4)
+    border-radius: 25px;
+    box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4);
 }
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {

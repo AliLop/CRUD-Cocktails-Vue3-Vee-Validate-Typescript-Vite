@@ -3,7 +3,7 @@
   <br/>
     <div class="details-comp">
     <div class="details" v-if="drink">
-        <img alt="Cocktail image" :src="imgUrl({drink})" />
+        <img class="img-details" alt="Cocktail image" :src="imgUrl({drink})" />
         <div class="description">
             <h4>{{ drink.strDrink }}</h4>
             <h5>Category: {{ drink.strCategory }}</h5>
@@ -51,6 +51,10 @@ export default {
   max-width: 30%;
   min-width: 400px;
   display: flex;
+   box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4)
+}
+.img-details {
+    min-width: unset;
 }
 .description {
     text-align: left;
