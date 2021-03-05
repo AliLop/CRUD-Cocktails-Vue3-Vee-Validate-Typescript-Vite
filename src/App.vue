@@ -42,11 +42,22 @@ button {
  font-weight: bold;
  margin: 10px 10px 20px 10px;
 }
-.fav-button {
-  margin-left: 0px;
-}
 h1 {
   color: #b48484;
+}
+.cocktails-comp {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 5%;
+  justify-content: center;
+}
+.card {
+  margin: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+.fav-button {
+  margin-left: 0px;
 }
 img {
   padding: 15px;

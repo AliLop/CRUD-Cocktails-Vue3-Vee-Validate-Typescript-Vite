@@ -1,15 +1,31 @@
 <template>
     <h1>Favorite Cocktails</h1>
     <br/>
-    <Favorites />
+    <div class="cocktails-comp" v-if="favorites.length">
+      <Card 
+        v-for="drink in favorites"
+        :drink="drink"
+        :key="drink.idDrink" 
+      />
+    </div>
+    <div v-else>
+        <p> Loading cocktails... </p>
+    </div>
 </template>
 
 <script lang="ts">
-import Favorites from "../components/Favorites.vue";
+import Card from '../components/Card.vue';
+import { mapState } from 'vuex'
+
 export default {
   name: "FavoritesView",
   components: {
-    Favorites
-  }
+    Card
+  },
+  computed: {
+    ...mapState([
+      'favorites'
+      ])
+    },
 };
 </script>

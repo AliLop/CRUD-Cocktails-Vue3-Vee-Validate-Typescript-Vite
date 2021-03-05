@@ -1,34 +1,36 @@
 <template>
     <h1>All Cocktails</h1>
     <br/>
-    <Cocktails :drinks="drinks"/>
+    <div class="cocktails-comp" v-if="drinks.length">
+      <Card 
+        v-for="drink in drinks"
+        :drink="drink"
+        :key="drink.idDrink" 
+      />
+    </div>
+    <div v-else>
+        <p> Loading cocktails... </p>
+    </div>
 </template>
 
 <script lang="ts">
-import Cocktails from "../components/Cocktails.vue";
+import Card from '../components/Card.vue';
+import { Drink } from '../../models/drink';
+import { getAll } from '../services/Drinks.service';
+
 export default {
   name: "HomeView",
   components: {
-    Cocktails
+    Card
   },
   data() {
     return {
-      drinks: [ ],
+      drinks: [] as Drink[],
     }
   },
-  beforeMount() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail', {
-      method: 'get'
-    })
-    .then((response) => {
-      return response.json()
-    })
-    .then((jsonData) => {
-      this.drinks = jsonData.drinks;
-    })
-    .catch((error) => {
-      console.log('error: ', error.message)
-    });
+  async mounted() {
+    const all = await getAll();
+    this.drinks = all.data.drinks;
   }
 };
 </script>
