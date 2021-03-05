@@ -12,7 +12,7 @@
     </div>
   </div>
   <br/>
-  <div class="cocktails-comp" v-if="searchResults && !searchResults.length">
+  <div class="cocktails-comp" v-if="searchResults && !searchResults.length || !searchInput">
     <Card 
       v-for="drink in drinks"
       :drink="drink"
@@ -28,6 +28,7 @@
     </div>
   <div v-else>
         <p> Loading cocktails... </p>
+        <p> Cocktails not found </p>
   </div>
 </template>
 
@@ -72,5 +73,11 @@ input {
     border: none;
     border-bottom: 1px solid #ddd;
     color: #555;
+    border-radius: 6px;
+}
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 </style>
