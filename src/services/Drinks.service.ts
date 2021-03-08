@@ -7,14 +7,13 @@ export const getAll = async (): Promise<Drink> => {
   )
 };
 export const getBySearchInput = async (search: string): Promise<Drink> => {
-    console.log('search', search)
-   return axios.get(
-     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`,
-   );
+    return axios.get(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`,
+  );
 };
 
- export const detailsById = async (id: string): Promise<Drink> => {
-   return axios.get(
-     `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
-   );
- };
+export const detailsById = async (id: string): Promise<Drink> => {
+  return axios.get(
+    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
+  );
+};

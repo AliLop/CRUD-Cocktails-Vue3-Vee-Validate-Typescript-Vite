@@ -1,37 +1,33 @@
 <template>
-  <h1>Contact us</h1>
+  <h1>Get in touch!</h1>
     <div class="form-comp">
-        <Form class="contactUs" @submit.prevent="submitForm" :validation-schema="schema" v-slot="{ errors }">
+        <Form class="contactUs" @submit="submitForm" :validation-schema="schema" v-slot="{ errors }">
             <div>
                 <label>Name*</label>
                 <Field class="field" name="name" as="input" placeholder='John Smith' v-model="name" />
                 <div>
-                    <br/>
-                    <span>{{ errors.name }}</span>
+                    <small>{{ errors.name }}</small>
                 </div>
             </div>
             <div>
                 <label>Email*</label>
                 <Field class="field" name="email" as="input" placeholder='example@example.com' v-model="email" />
                 <div>
-                    <br/>
-                    <span>{{ errors.email }}</span>
+                    <small>{{ errors.email }}</small>
                 </div>
             </div>
             <div>
                 <label>Phone*</label>
                 <Field class="field" name="phone" as="input" placeholder= "(xxx)xxxxxxx" v-model="phone" />
                 <div>
-                    <br/>
-                    <span>{{ errors.phone }}</span>
+                    <small>{{ errors.phone }}</small>
                 </div>
             </div>
             <div>
                 <label>Message*</label>
                 <Field class="field" name="message" as="input" placeholder='Message' v-model="message" />
                 <div>
-                    <br/>
-                    <span>{{ errors.message }}</span>
+                    <small>{{ errors.message }}</small>
                 </div>
             </div>
             <div>
@@ -47,6 +43,7 @@
 import { ref } from 'vue'
 import { Form, Field, ErrorMessage} from 'vee-validate';
 import * as yup from 'yup';
+import { sendForm } from '../services/Form.service';
 
 export default({
     name: "ContactUsView",
@@ -59,27 +56,31 @@ export default({
         const schema = yup.object().shape({
             name: yup.string().required("Name is required"),
             email: yup.string().email("Email is invalid").required("Email is required"),
-            phone: yup.string().required("Phone number is required").matches(/\(?\d{3}\)?-? *\d{3}-? *-?\d{4}/),
+            phone: yup.string().required("Valid phone number is required"),
             message: yup.string().min(8).required("Message is required"),
         })
     
         const el = ref()
         const name = ref('')
         const email = ref('')
-        const phone =ref('')
+        const phone = ref('')
         const message = ref('')
+        const form = {
+                name,
+                email,
+                phone,
+                message,
+            }
 
-        const submitForm = () => {
-            alert('Form submitted!')
+        const submitForm = async () => {
+            alert(`Form submitted!`);
             console.log(`Form submitted! 
                 Name= ${name.value}
                 Email= ${email.value}
                 Phone= ${phone.value}
-                Message= ${message.value}`)
-            name.value = ''
-            email.value = ''
-            phone.value = ''
-            message.value = ''
+                Message= ${message.value}`);
+                
+            await sendForm( form );
         }
 
         return {
@@ -91,7 +92,7 @@ export default({
         message,
         submitForm,
         }
-    }
+    },
 });
 </script>
 
@@ -107,10 +108,9 @@ export default({
     padding: 40px;
     border-radius: 10px;
     box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4)
-
 }
 label {
-    color: #2c3e50;
+    color: var(--dark);
     display:  inline-block;
     margin: 25px 0 15px;
     font-size: 1em;
@@ -125,7 +125,7 @@ label {
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #ddd;
-    color: #555;
+    color: var(--dark);
 }
 .submit-button {
     margin: 20px 0 0;

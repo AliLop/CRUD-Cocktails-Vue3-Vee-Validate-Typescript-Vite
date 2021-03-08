@@ -22,22 +22,29 @@ export default defineComponent({
 </script>
 
 <style>
+:root {
+  --bgColor: #C9E0DF;
+  --bgLight: wheat;
+  --lightColor: #b48484; 
+  --titleColor: #7a5656;
+  --dark: #2c3e50;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--dark);
 }
 body {
   margin: 0;
-  background: #C9E0DF;
+  background: var(--bgColor);
 }
 button {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color:  #7a5656; 
+  background-color:  var(--titleColor); 
   background-image: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,0));
   color: white;
   font-weight: bold;
@@ -47,7 +54,7 @@ button:hover {
   cursor: pointer;
 }
 h1 {
-  color: #7a5656; 
+  color: var(--titleColor); 
 }
 .cocktails-comp {
   display: flex;
@@ -63,7 +70,7 @@ h1 {
 }
 .fav-button {
   margin-left: 0px;
-  background-color: #b48484;
+  background-color: var(--lightColor);
 }
 img {
   min-width: -webkit-fill-available;
@@ -79,6 +86,6 @@ input:focus {
     border-radius: 6px;
 }
 input:hover{
-  border-color: #FDD68B
+  border-color: var(--bgLight);
 }
 </style>

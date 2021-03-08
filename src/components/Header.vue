@@ -6,9 +6,9 @@
         <router-link to="/contact-us">Contact us</router-link>    
       </nav>
       <div class="routing">
-        <button @click="back">⬅️</button>
-        <button @click="redirect">🏠</button>
-        <button @click="forward">➡️</button>
+        <button @click="back"><i class="fas fa-arrow-left"></i></button>
+        <button @click="redirect"><i class="fas fa-cocktail"></i></button>
+        <button @click="forward"><i class="fas fa-arrow-right"></i></button>
       </div>
     </header>
 </template>
@@ -41,20 +41,21 @@ header {
   flex-direction: row;
   justify-content: space-around;
   padding: 2vh 0; 
-  background-color:wheat;
+  background-color: var(--bgLight);
 }
 nav {
   display: flex;
 }
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: var(--titleColor); 
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 4px;
 }
 nav a.router-link-active {
-    color: #b48484
+    color: var(--lightColor);
+    font-size: large;
 }
 .routing {
   display: flex;
@@ -66,12 +67,14 @@ nav a.router-link-active {
 }
 button {
   margin: 0px 10px;
-  background-color: #F5DEB3;;
+  background-color: var(--bgLight);
   background-image: none;
   font-size: larger;
-  
 }
 button:focus {
     outline: none;
+}
+i {
+  color: var(--lightColor);
 }
 </style>

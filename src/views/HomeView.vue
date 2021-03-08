@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>All Cocktails</h1>
-    <div class="mt-4 mb-4 relative mx-auto text-gray-600">
+    <div>
       <input
         type="search"
         name="search"
@@ -21,7 +20,7 @@
     />
   </div>
   <div class="cocktails-comp" v-if="searchResults && searchResults.length">
-    <Card 
+    <Card
       v-for="drink in searchResults"
       :drink="drink"
       :key="drink.idDrink" 
@@ -35,7 +34,7 @@
 
 <script lang="ts">
 import Card from '../components/Card.vue';
-import { Drink } from '../../models/drink';
+import { Drink } from '../models/drink';
 import { getAll, getBySearchInput } from '../services/Drinks.service';
 
 export default {
@@ -52,10 +51,8 @@ export default {
   },
   methods: {
     searchInputUpdate: async function () {
-      console.log(this.searchInput)
       const results = await getBySearchInput(this.searchInput);
       this.searchResults = results.data.drinks;
-      console.log(this.searchResults)
     },
   },
   async mounted() {
@@ -67,16 +64,18 @@ export default {
 
 <style scoped>
 input {
+    margin-top: 2%;
     padding: 10px 15px;
-    width: 30%;
+    width: 40%;
     min-width: fit-content;
-    max-width: 250px;
+    max-width: 250px; 
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #ddd;
-    color: #555;
+    color: var(--dark);
     border-radius: 25px;
     box-shadow: -4px 0 2px -2px rgba(44, 62, 80, 0.4);
+    background-color: #edf0f3;
 }
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
