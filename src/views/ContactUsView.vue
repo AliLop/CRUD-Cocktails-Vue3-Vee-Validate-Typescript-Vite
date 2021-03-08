@@ -104,24 +104,16 @@
       const email = ref('');
       const phone = ref('');
       const message = ref('');
-      const form = {
-        name,
-        email,
-        phone,
-        message,
-      };
 
-      const onSubmit = (form, { resetForm }) => {
+      const onSubmit = async (form, { resetForm }) => {
         alert(`Form submitted!`);
         console.log(`Form submitted! 
-                ${form}
-                Name= ${name.value}
+                Name= ${name.value}form
                 Email= ${email.value}
                 Phone= ${phone.value}
                 Message= ${message.value}`);
-
-        sendForm(form);
         resetForm();
+        await sendForm(form);
       };
 
       return {
