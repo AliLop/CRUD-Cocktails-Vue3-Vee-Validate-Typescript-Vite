@@ -5,7 +5,7 @@ export default {
     commit('appendFav', payload);
   },
   removeFav: ({ commit }, payload: number) => {
-      console.log('removefav', payload)
+    console.log('removefav', payload);
     commit('excludeFav', payload);
   },
 };

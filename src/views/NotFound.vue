@@ -6,14 +6,14 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: "NotFound",
-};
+  export default {
+    name: 'NotFound',
+  };
 </script>
 
 <style scoped>
-.notFound-view {
-  min-height: 85vh;
-  font-size: 60px;
-}
+  .notFound-view {
+    min-height: 85vh;
+    font-size: 60px;
+  }
 </style>
