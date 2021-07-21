@@ -10,6 +10,8 @@ To start run: <br/>
 
 Runs on http://localhost:3000/
 
+Or <a href="https://kind-mcnulty-bcf2f3.netlify.app/">Check it out Live here!</a>
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
