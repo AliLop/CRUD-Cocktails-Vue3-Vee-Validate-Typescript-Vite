@@ -8,7 +8,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-
+  import { Fonts } from '@myndshft/fonts';
   import Header from './components/Header.vue';
   import Footer from './components/Footer.vue';
 
@@ -17,6 +17,9 @@
     components: {
       Header,
       Footer,
+    },
+    computed: {
+      Fonts,
     },
   });
 </script>
@@ -30,7 +33,7 @@
     --dark: #2c3e50;
   }
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: Avenir, Helvetica, Arial, sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
